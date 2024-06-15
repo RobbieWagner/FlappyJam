@@ -10,6 +10,7 @@ namespace RobbieWagnerGames.CrappyBird
     {
         [SerializeField] private List<SpriteRenderer> sprites;
         [SerializeField] private bool startOn;
+        private bool triggered = false;
 
         private void Awake()
         {
@@ -21,7 +22,7 @@ namespace RobbieWagnerGames.CrappyBird
         protected override IEnumerator InvokeEvent()
         {
             yield return null;
-            if(sprites.Any())
+            if(!triggered && sprites.Any())
                 ToggleSprites(!sprites.First().enabled);
         }
 
@@ -30,6 +31,7 @@ namespace RobbieWagnerGames.CrappyBird
             if (state == GameState.Playing)
             {
                 ToggleSprites(startOn);
+                triggered = false;
             }
         }
 
@@ -37,6 +39,7 @@ namespace RobbieWagnerGames.CrappyBird
         {
             foreach (var sprite in sprites) 
                 sprite.enabled = on;
+            triggered = true;
         }
     }
 }

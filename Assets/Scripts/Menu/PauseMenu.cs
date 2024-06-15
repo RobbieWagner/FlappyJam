@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.InputAction;
+using UnityEngine.EventSystems;
 
 namespace RobbieWagnerGames.CrappyBird
 {
@@ -44,6 +47,8 @@ namespace RobbieWagnerGames.CrappyBird
                 OnPause?.Invoke();
                 Time.timeScale = 0f;
                 canvas.enabled = true;
+                if (buttons.Any())
+                    EventSystem.current.SetSelectedGameObject(buttons.First().Key.gameObject, new BaseEventData(EventSystem.current));
             }
             else
             {
@@ -56,11 +61,17 @@ namespace RobbieWagnerGames.CrappyBird
 
         private IEnumerator Unpause()
         {
+            EventSystem.current.SetSelectedGameObject(null, new BaseEventData(EventSystem.current));
             yield return null;
             Time.timeScale = 1f;
             canvas.enabled = false;
             yield return null;
             OnResume?.Invoke();
+        }
+
+        private void OnDestroy()
+        {
+            playerControls.Player.Pause.performed -= TogglePause;
         }
     }
 }

@@ -1,6 +1,7 @@
 using AYellowpaper.SerializedCollections;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +11,7 @@ namespace RobbieWagnerGames.CrappyBird
     {
         [SerializeField]
         [SerializedDictionary("Button", "MenuButtons")]
-        private SerializedDictionary<Button, List<MenuButton>> buttons;
+        protected SerializedDictionary<Button, List<MenuButton>> buttons;
 
         protected virtual void Awake()
         {

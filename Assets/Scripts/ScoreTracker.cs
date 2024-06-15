@@ -10,8 +10,8 @@ namespace RobbieWagnerGames.CrappyBird
 {
     public class ScoreTracker : MonoBehaviour
     {
-        private int score = 0;
-        public int Score
+        private float score = 0;
+        public float Score
         {
             get { return score; }
             set 
@@ -22,9 +22,11 @@ namespace RobbieWagnerGames.CrappyBird
                     AudioManager.Instance.PlayAudioOneShot("point");
                 score = value; 
                 OnScoreUpdated?.Invoke(score);
+                if (GameManager.Instance.CurrentGameState == GameState.Playing && score == 50)
+                    GameManager.Instance.Win();
             }
         }
-        public delegate void ScoreHandler(int score);
+        public delegate void ScoreHandler(float score);
         public event ScoreHandler OnScoreUpdated;
 
         [SerializeField] private TextMeshProUGUI scoreText;
@@ -51,7 +53,7 @@ namespace RobbieWagnerGames.CrappyBird
             }
         }
 
-        private void UpdateScoreText(int scoreValue)
+        private void UpdateScoreText(float scoreValue)
         {
             scoreText.text = $"{scoreValue}";
         }

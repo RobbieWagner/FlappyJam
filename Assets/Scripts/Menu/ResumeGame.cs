@@ -9,6 +9,7 @@ namespace RobbieWagnerGames.CrappyBird
     {
         public override void InvokeMenuButton()
         {
+            base.InvokeMenuButton();
             PauseMenu.Instance.TogglePause();
         }
     }

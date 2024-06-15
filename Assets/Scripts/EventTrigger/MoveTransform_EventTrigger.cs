@@ -11,6 +11,7 @@ namespace RobbieWagnerGames.CrappyBird
         [SerializeField] private Vector2 offset = Vector2.zero;
         [SerializeField] private float moveTime = 1f;
         private Vector2 startPos;
+        [SerializeField] private Vector2 resetPos = Vector2.zero;
 
         private void Awake()
         {
@@ -27,7 +28,10 @@ namespace RobbieWagnerGames.CrappyBird
         {
             if (state == GameState.Playing)
             {
-                objectToMove.position = startPos;
+                if(resetPos.Equals(Vector2.zero))
+                    objectToMove.position = startPos;
+                else
+                    objectToMove.localPosition = resetPos;
             }
         }
     }

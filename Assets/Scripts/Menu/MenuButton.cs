@@ -14,6 +14,7 @@ namespace RobbieWagnerGames.CrappyBird
 
         public virtual void InvokeMenuButton()
         {
+            AudioManager.Instance?.PlayAudioOneShot("select");
         }
     }
 }

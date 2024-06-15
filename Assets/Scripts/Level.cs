@@ -14,7 +14,8 @@ namespace RobbieWagnerGames.CrappyBird
 
         private void Awake()
         {
-            GameManager.Instance.OnSetGameState += OnUpdateGameState;
+            if(GameManager.Instance != null)
+                GameManager.Instance.OnSetGameState += OnUpdateGameState;
         }
 
         private void OnUpdateGameState(GameState gameState)
