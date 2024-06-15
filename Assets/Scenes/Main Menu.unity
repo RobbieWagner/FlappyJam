@@ -135,6 +135,14 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2031984696059102097, guid: abd5ba5a50df71944a48657bb26ae286, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3475410436456544844, guid: abd5ba5a50df71944a48657bb26ae286, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3937793833548882697, guid: abd5ba5a50df71944a48657bb26ae286, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -180,7 +188,8 @@ PrefabInstance:
       value: Main Camera
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1247654393523170956, guid: abd5ba5a50df71944a48657bb26ae286, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abd5ba5a50df71944a48657bb26ae286, type: 3}

@@ -11336,6 +11336,7 @@ GameObject:
   - component: {fileID: 1248518914}
   - component: {fileID: 1248518916}
   - component: {fileID: 1248518915}
+  - component: {fileID: 1248518917}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -11419,6 +11420,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 9}
   m_EdgeRadius: 0
+--- !u!114 &1248518917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248518913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea2b8820cdafa845bf2119dbd43bccd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioName: boom
 --- !u!1001 &1278140151
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17356,6 +17370,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3475410436456544844, guid: abd5ba5a50df71944a48657bb26ae286, type: 3}
+      propertyPath: m_Volume
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 3937793833548882697, guid: abd5ba5a50df71944a48657bb26ae286, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3
@@ -17401,7 +17419,8 @@ PrefabInstance:
       value: Main Camera
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1247654393523170956, guid: abd5ba5a50df71944a48657bb26ae286, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abd5ba5a50df71944a48657bb26ae286, type: 3}

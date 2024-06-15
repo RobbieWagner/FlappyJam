@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.Build;
-using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,6 +16,7 @@ namespace RobbieWagnerGames.CrappyBird
         private void Awake()
         {
             StartCoroutine(RunBirdSpawns());
+            AudioManager.Instance?.PlayAudioOneShot("opening");
         }
 
         private IEnumerator RunBirdSpawns()
