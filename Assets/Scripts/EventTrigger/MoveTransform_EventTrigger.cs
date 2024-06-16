@@ -12,6 +12,7 @@ namespace RobbieWagnerGames.CrappyBird
         [SerializeField] private float moveTime = 1f;
         private Vector2 startPos;
         [SerializeField] private Vector2 resetPos = Vector2.zero;
+        private Tweener tween;
 
         private void Awake()
         {
@@ -21,11 +22,17 @@ namespace RobbieWagnerGames.CrappyBird
 
         protected override IEnumerator InvokeEvent()
         {
-            yield return objectToMove.DOMove((Vector2) objectToMove.transform.position + offset, moveTime).SetEase(Ease.Linear).WaitForCompletion();
+            tween = objectToMove.DOMove((Vector2)objectToMove.transform.position + offset, moveTime).SetEase(Ease.Linear);
+            yield return tween.WaitForKill();
         }
 
         private void ResetPosition(GameState state) 
         {
+            if(tween != null)
+            {
+                tween.Kill();
+                tween = null;
+            }
             if (state == GameState.Playing)
             {
                 if(resetPos.Equals(Vector2.zero))

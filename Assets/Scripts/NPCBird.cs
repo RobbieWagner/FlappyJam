@@ -18,8 +18,6 @@ namespace RobbieWagnerGames.CrappyBird
         [SerializeField] private float xDeathPos = 55f;
         [HideInInspector] public float yPos = 0;
 
-        private bool canFlap = true;
-
         private void Awake()
         {
             StartCoroutine(InitializeBird());
@@ -60,7 +58,6 @@ namespace RobbieWagnerGames.CrappyBird
         private IEnumerator CooldownFlap()
         {
             yield return new WaitForSeconds(flapCooldown);
-            canFlap = true;
         }
     }
 }
